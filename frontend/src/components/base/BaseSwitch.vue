@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  modelValue: boolean;
+  modelValue?: boolean;
 }>();
 
 defineEmits(["update:modelValue"]);
@@ -23,14 +23,16 @@ defineEmits(["update:modelValue"]);
 .switch {
   position: relative;
   display: inline-block;
-  width: 3.5rem;
-  height: 2em;
+  width: 3rem;
+  height: 1.5em;
 }
+
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
+
 .slider {
   position: absolute;
   cursor: pointer;
@@ -42,28 +44,33 @@ defineEmits(["update:modelValue"]);
   -webkit-transition: 0.1s;
   transition: 0.1s;
 }
+
 .slider:before {
   position: absolute;
   content: "";
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 1rem;
+  width: 1rem;
   left: 0.25rem;
   bottom: 0.25rem;
   background-color: #fafaf9;
   -webkit-transition: 0.1s;
   transition: 0.1s;
 }
+
 input:checked + .slider {
   background-color: #1c1917;
 }
+
 input:checked + .slider:before {
   -webkit-transform: translateX(1.5rem);
   -ms-transform: translateX(1.5rem);
   transform: translateX(1.5rem);
 }
+
 .slider.round {
   border-radius: 99999px;
 }
+
 .slider.round:before {
   border-radius: 99999px;
 }
