@@ -9,11 +9,13 @@ defineProps<{
     | "danger"
     | "suggest"
     | "warning";
+  href?: string;
 }>();
 </script>
 
 <template>
-  <button :class="[size, variant]"><slot></slot></button>
+  <a :class="[size, variant]" :href="href" v-if="href"><slot></slot></a>
+  <button :class="[size, variant]" v-else><slot></slot></button>
 </template>
 
 <style scoped>
@@ -41,7 +43,35 @@ button:hover {
   color: #1c1917;
 }
 
-::v-deep svg {
+button >>> svg {
+  margin-right: 0.5rem;
+}
+
+a {
+  display: inline-flex;
+  box-sizing: border-box;
+  background-color: #1c1917;
+  color: #fafaf9;
+  border: #1c1917 1px solid;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  height: 2.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+  transition-property: color, background-color, border;
+  transition-duration: 0.3s;
+}
+
+a:hover {
+  background-color: #fafaf9;
+  color: #1c1917;
+}
+
+a >>> svg {
   margin-right: 0.5rem;
 }
 
