@@ -43,7 +43,7 @@ button:hover {
   color: #1c1917;
 }
 
-button >>> svg {
+button:deep(svg) {
   margin-right: 0.5rem;
 }
 
@@ -71,7 +71,7 @@ a:hover {
   color: #1c1917;
 }
 
-a >>> svg {
+a:deep(svg) {
   margin-right: 0.5rem;
 }
 
